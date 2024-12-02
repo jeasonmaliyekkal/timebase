@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cortex-debug",
+            "type": "cortex-debug",
+            "request": "launch",
+            "cwd": "${workspaceRoot}/build",
+            "executable": "${workspaceRoot}/build/Debug/${workspaceFolderBasename}.elf",
+            "servertype": "stlink",
+            "interface": "swd",
+            "device": "STM32F401CC",
+            "preRestartCommands": [
+                "target extended-remote localhost:3333",
+                "add-symbol-file ${workspaceFolderBasename}",
+                "enable breakpoint",
+                "monitor reset"
+            ],
+            "configFiles": ["/usr/share/openocd/scripts/interface/stlink.cfg","/usr/share/openocd/scripts/target/stm32f4x.cfg"],
+            "searchDir":["/usr/share/openocd/scripts/board/"],
+            "svdFile": "${workspaceFolder}/STM32F401.svd",
+            "preLaunchTask": "Build project"
+        }]
+}

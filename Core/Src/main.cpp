@@ -21,6 +21,7 @@
 #include "main.h"
 #include "led.h"
 #include "uart.h"
+#include "timebase.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -78,6 +79,7 @@ int main(void)
   /* USER CODE BEGIN Init */
   LEDInit();
   uartTransmitInit();
+  timebaseInit();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -98,9 +100,9 @@ int main(void)
   {
     /* USER CODE END WHILE */
     LEDOn();
-    for(int i =0; i< 90000; i++){}
+    delay(1);
     LEDOff();
-    for(int i =0; i< 90000; i++){}
+    delay(2);
     /* USER CODE BEGIN 3 */
     std::cout << ("Hello from STM32.....\n\r");
   }

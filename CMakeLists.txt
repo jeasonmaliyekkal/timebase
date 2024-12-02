@@ -49,6 +49,7 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     "Core/Src/led.cpp"
     "Core/Src/uart.cpp"
+    "Core/Src/timebase.cpp"
 )
 
 # Add include paths
